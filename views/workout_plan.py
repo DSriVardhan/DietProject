@@ -56,4 +56,4 @@ for idx, ex in enumerate(selected_routine, start=1):
             st.write(f"**Reps:** {ex['reps']}")
             st.write(f"**Rest:** {ex['rest']}")
         with col2:
-            st.image(DEMO_VISUAL, caption=f"Form: {ex['name']}", use_column_width=True)
+            st.image(DEMO_VISUAL, caption=f"Form: {ex['name']}", use_container_width=True)
