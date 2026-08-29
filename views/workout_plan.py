@@ -14,9 +14,7 @@ with col2:
 
 st.divider()
 
-# Comprehensive Exercise Database mapped directly to raw GitHub media links
-BASE_IMG_URL = "https://raw.githubusercontent.com/yuhas/free-exercise-db/main/exercises"
-
+# Exercise Database mapped to reliable video demonstration links
 exercises = {
     "Chest": [
         {
@@ -24,14 +22,14 @@ exercises = {
             "sets": "3-4", 
             "reps": "8-12", 
             "notes": "Keep feet flat on the floor, retract shoulder blades, and lower the bar to mid-chest.",
-            "image": f"{BASE_IMG_URL}/Barbell_Bench_Press/0.jpg"
+            "video": "https://www.youtube.com/watch?v=rT7DgCr-3pg"
         },
         {
             "name": "Incline Dumbbell Press", 
             "sets": "3-4", 
             "reps": "10-12", 
             "notes": "Set bench to 30 degrees to target upper chest without over-engaging shoulders.",
-            "image": f"{BASE_IMG_URL}/Incline_Dumbbell_Press/0.jpg"
+            "video": "https://www.youtube.com/watch?v=8iPEnn-ltC8"
         }
     ],
     "Back": [
@@ -40,14 +38,14 @@ exercises = {
             "sets": "3-4", 
             "reps": "10-12", 
             "notes": "Pull bar towards upper chest while driving elbows down and squeezing shoulder blades.",
-            "image": f"{BASE_IMG_URL}/Cable_Pulldown/0.jpg"
+            "video": "https://www.youtube.com/watch?v=CAwf7n6Luuc"
         },
         {
             "name": "Barbell Bent Over Row", 
             "sets": "3-4", 
             "reps": "8-10", 
             "notes": "Hinge at hips with a neutral spine and pull barbell toward your lower ribs.",
-            "image": f"{BASE_IMG_URL}/Barbell_Bent_Over_Row/0.jpg"
+            "video": "https://www.youtube.com/watch?v=FWJR5Ve8bnQ"
         }
     ],
     "Legs": [
@@ -56,14 +54,14 @@ exercises = {
             "sets": "3-4", 
             "reps": "8-10", 
             "notes": "Keep chest up, brace core, and lower hips down to parallel or lower.",
-            "image": f"{BASE_IMG_URL}/Barbell_Full_Squat/0.jpg"
+            "video": "https://www.youtube.com/watch?v=ultWZbUMPL8"
         },
         {
             "name": "Leg Press", 
             "sets": "3", 
             "reps": "12-15", 
             "notes": "Place feet shoulder-width on platform. Avoid locking out knees at top.",
-            "image": f"{BASE_IMG_URL}/Sled_45_Degree_Leg_Press/0.jpg"
+            "video": "https://www.youtube.com/watch?v=IZxyjW7MPJQ"
         }
     ],
     "Shoulders": [
@@ -72,14 +70,14 @@ exercises = {
             "sets": "3-4", 
             "reps": "8-10", 
             "notes": "Keep core tight and press barbell vertically over head without arching lower back.",
-            "image": f"{BASE_IMG_URL}/Barbell_Standing_Military_Press/0.jpg"
+            "video": "https://www.youtube.com/watch?v=2yjwXTZQDDI"
         },
         {
             "name": "Dumbbell Lateral Raise", 
             "sets": "3", 
             "reps": "12-15", 
             "notes": "Raise dumbbells out to sides until parallel with floor while leading with elbows.",
-            "image": f"{BASE_IMG_URL}/Dumbbell_Lateral_Raise/0.jpg"
+            "video": "https://www.youtube.com/watch?v=3VcKaXpzqRo"
         }
     ],
     "Arms": [
@@ -88,14 +86,14 @@ exercises = {
             "sets": "3", 
             "reps": "10-12", 
             "notes": "Keep upper arms stationary and curl weights toward shoulders while squeezing bicep.",
-            "image": f"{BASE_IMG_URL}/Dumbbell_Bicep_Curl/0.jpg"
+            "video": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo"
         },
         {
             "name": "Triceps Cable Pushdown", 
             "sets": "3", 
             "reps": "12-15", 
             "notes": "Keep elbows tucked to sides and extend arms down completely.",
-            "image": f"{BASE_IMG_URL}/Triceps_Pushdown/0.jpg"
+            "video": "https://www.youtube.com/watch?v=2-LAMcpzODU"
         }
     ],
     "Core": [
@@ -104,14 +102,14 @@ exercises = {
             "sets": "3", 
             "reps": "15-20", 
             "notes": "Lie flat, contract abs to lift shoulder blades off ground without straining neck.",
-            "image": f"{BASE_IMG_URL}/Ab_Crunch_Machine/0.jpg"
+            "video": "https://www.youtube.com/watch?v=Xyd_fa5zoEU"
         },
         {
-            "name": "Ab Roller Rollout", 
+            "name": "Plank", 
             "sets": "3", 
-            "reps": "10-12", 
-            "notes": "Kneel down, hold roller, extend forward maintaining flat spine, pull back with abs.",
-            "image": f"{BASE_IMG_URL}/Ab_Roller/0.jpg"
+            "reps": "45-60s hold", 
+            "notes": "Maintain a straight line from shoulders to ankles with a tight core.",
+            "video": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
         }
     ]
 }
@@ -122,10 +120,10 @@ selected_list = exercises.get(muscle_group, [])
 st.subheader(f"{level} - {muscle_group} Routine")
 
 for ex in selected_list:
-    with st.expander(f"📌 {ex['name']} ({ex['sets']} sets x {ex['reps']} reps)", expanded=True):
+    with st.expander(f"📌 {ex['name']} ({ex['sets']} sets x {ex['reps']})", expanded=True):
         st.write(f"**Execution Notes:** {ex['notes']}")
         
         try:
-            st.image(ex["image"], caption=f"Form Guide: {ex['name']}", use_container_width=True)
+            st.video(ex["video"])
         except Exception:
             st.info(f"🏋️ Form Guide: Maintain controlled movement during {ex['name']}.")
