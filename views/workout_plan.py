@@ -56,4 +56,10 @@ for idx, ex in enumerate(selected_routine, start=1):
             st.write(f"**Reps:** {ex['reps']}")
             st.write(f"**Rest:** {ex['rest']}")
         with col2:
-            st.image(DEMO_VISUAL, caption=f"Form: {ex['name']}", use_container_width=True)
+            # Replace the old DEMO_VISUAL line with a working image source:
+DEMO_VISUAL = "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
+
+try:
+    st.image(DEMO_VISUAL, caption=f"Form: {ex['name']}", use_container_width=True)
+except Exception:
+    st.info(f"🏋️ Form Guide: Keep control and maintain solid posture during {ex['name']}.")
