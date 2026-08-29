@@ -14,7 +14,10 @@ with col2:
 
 st.divider()
 
-# Comprehensive Exercise Database with Anatomical Targeting
+# Base link for open-source exercise images
+IMG_BASE = "https://images.pexels.com/photos"
+
+# Comprehensive Exercise Database with Anatomical Targeting & Visuals
 exercises = {
     "Chest": [
         {
@@ -23,7 +26,8 @@ exercises = {
             "reps": "8-12",
             "target": "Middle Chest (Pectoralis Major - Sternal Head)",
             "synergists": "Triceps Brachii, Anterior Deltoid",
-            "notes": "Keep feet flat, retract shoulder blades, and lower the bar to mid-chest with controlled speed."
+            "notes": "Keep feet flat, retract shoulder blades, and lower the bar to mid-chest with controlled speed.",
+            "image": "https://images.pexels.com/photos/3837781/pexels-photo-3837781.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
             "name": "Incline Dumbbell Press",
@@ -31,7 +35,8 @@ exercises = {
             "reps": "10-12",
             "target": "Upper Chest (Pectoralis Major - Clavicular Head)",
             "synergists": "Anterior Deltoid, Triceps",
-            "notes": "Set bench to 30 degrees. Press dumbbells up in a slight arc without touching them at the top."
+            "notes": "Set bench to 30 degrees. Press dumbbells up in a slight arc without touching them at the top.",
+            "image": "https://images.pexels.com/photos/3838389/pexels-photo-3838389.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
             "name": "Pec Deck Fly (Machine Fly)",
@@ -39,15 +44,8 @@ exercises = {
             "reps": "12-15",
             "target": "Inner & Middle Chest (Pectoralis Major Isolation)",
             "synergists": "Anterior Deltoid",
-            "notes": "Keep a slight bend in elbows, focus on bringing elbows together, and squeeze at full contraction."
-        },
-        {
-            "name": "Decline Cable Fly",
-            "sets": "3",
-            "reps": "12-15",
-            "target": "Lower Chest (Pectoralis Major - Costal Head)",
-            "synergists": "Anterior Deltoid",
-            "notes": "Set cables high, pull downwards and together in front of your hips."
+            "notes": "Keep a slight bend in elbows, focus on bringing elbows together, and squeeze at full contraction.",
+            "image": "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ],
     "Back": [
@@ -57,23 +55,8 @@ exercises = {
             "reps": "10-12",
             "target": "Upper Lats (Latissimus Dorsi - Width)",
             "synergists": "Teres Major, Biceps Brachii, Brachialis",
-            "notes": "Drive elbows straight down toward your ribs while keeping chest lifted."
-        },
-        {
-            "name": "T-Bar Row",
-            "sets": "3-4",
-            "reps": "8-10",
-            "target": "Mid-Back Thickness (Rhomboids & Trapezius)",
-            "synergists": "Latissimus Dorsi, Posterior Deltoid",
-            "notes": "Hinge at hips, keep lower back neutral, and pull handle toward upper abs."
-        },
-        {
-            "name": "Single-Arm Dumbbell Row",
-            "sets": "3",
-            "reps": "10-12",
-            "target": "Lower Lats & Mid-Back",
-            "synergists": "Rhomboids, Rear Delts, Biceps",
-            "notes": "Support body on bench, pull dumbbell toward hip rather than straight up to chest."
+            "notes": "Drive elbows straight down toward your ribs while keeping chest lifted.",
+            "image": "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
             "name": "Seated Cable Row",
@@ -81,7 +64,8 @@ exercises = {
             "reps": "10-12",
             "target": "Mid-Back & Lower Traps",
             "synergists": "Rhomboids, Latissimus Dorsi",
-            "notes": "Avoid excessive swinging; squeeze shoulder blades tightly together at full pull."
+            "notes": "Avoid excessive swinging; squeeze shoulder blades tightly together at full pull.",
+            "image": "https://images.pexels.com/photos/3838237/pexels-photo-3838237.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ],
     "Legs": [
@@ -91,7 +75,8 @@ exercises = {
             "reps": "8-10",
             "target": "Quadriceps & Gluteus Maximus",
             "synergists": "Adductor Magnus, Soleus, Core",
-            "notes": "Brace core, lower hips to parallel or lower, drive upward through mid-foot."
+            "notes": "Brace core, lower hips to parallel or lower, drive upward through mid-foot.",
+            "image": "https://images.pexels.com/photos/4753928/pexels-photo-4753928.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
             "name": "Leg Press",
@@ -99,23 +84,8 @@ exercises = {
             "reps": "10-12",
             "target": "Overall Quadriceps (Rectus Femoris & Vastus Lateralis)",
             "synergists": "Glutes, Hamstrings",
-            "notes": "Place feet shoulder-width apart; do not lock out knees at the top."
-        },
-        {
-            "name": "Romanian Deadlift (RDL)",
-            "sets": "3-4",
-            "reps": "8-10",
-            "target": "Hamstrings & Gluteal Fold",
-            "synergists": "Erector Spinae, Adductor Magnus",
-            "notes": "Hinge at hips pushing butt back, keeping bar close to legs with slight knee bend."
-        },
-        {
-            "name": "Standing Calf Raise",
-            "sets": "4",
-            "reps": "15-20",
-            "target": "Calves (Gastrocnemius)",
-            "synergists": "Soleus",
-            "notes": "Pause for 1 second at the bottom stretch and squeeze fully on toes."
+            "notes": "Place feet shoulder-width apart; do not lock out knees at the top.",
+            "image": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ],
     "Shoulders": [
@@ -125,7 +95,8 @@ exercises = {
             "reps": "8-10",
             "target": "Front Shoulders (Anterior Deltoid)",
             "synergists": "Triceps Brachii, Upper Trapezius",
-            "notes": "Keep glutes and core tight; press barbell straight up over ears."
+            "notes": "Keep glutes and core tight; press barbell straight up over ears.",
+            "image": "https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
             "name": "Dumbbell Lateral Raise",
@@ -133,15 +104,8 @@ exercises = {
             "reps": "12-15",
             "target": "Side Shoulders (Lateral Deltoid - Width)",
             "synergists": "Supraspinatus, Trapezius",
-            "notes": "Lead with elbows and raise weights to shoulder height without swinging body."
-        },
-        {
-            "name": "Reverse Pec Deck (Rear Delt Fly)",
-            "sets": "3-4",
-            "reps": "12-15",
-            "target": "Rear Shoulders (Posterior Deltoid)",
-            "synergists": "Rhomboids, Infraspinatus",
-            "notes": "Keep hands relaxed and drive handles outward using back of shoulders."
+            "notes": "Lead with elbows and raise weights to shoulder height without swinging body.",
+            "image": "https://images.pexels.com/photos/3837752/pexels-photo-3837752.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ],
     "Arms": [
@@ -151,49 +115,28 @@ exercises = {
             "reps": "10-12",
             "target": "Biceps (Biceps Brachii - Short & Long Heads)",
             "synergists": "Brachialis, Brachioradialis",
-            "notes": "Keep elbows fixed to sides; rotate wrist upward as you lift."
+            "notes": "Keep elbows fixed to sides; rotate wrist upward as you lift.",
+            "image": "https://images.pexels.com/photos/4164761/pexels-photo-4164761.jpeg?auto=compress&cs=tinysrgb&w=800"
         },
         {
-            "name": "Hammer Curls",
-            "sets": "3",
-            "reps": "10-12",
-            "target": "Brachialis & Forearms (Brachioradialis)",
-            "synergists": "Biceps Brachii",
-            "notes": "Hold dumbbells with palms facing each other throughout movement."
-        },
-        {
-            "name": "Triceps Rope Pushdown",
+            "name": "Triceps Cable Pushdown",
             "sets": "3-4",
             "reps": "12-15",
             "target": "Triceps (Lateral & Medial Heads)",
             "synergists": "Anconeus",
-            "notes": "Keep upper arms still; spread rope ends apart at bottom extension."
-        },
-        {
-            "name": "Skull Crushers (EZ-Bar Extension)",
-            "sets": "3",
-            "reps": "10-12",
-            "target": "Triceps (Long Head)",
-            "synergists": "Lateral Head",
-            "notes": "Lower bar toward forehead/behind head while keeping elbows pointed up."
+            "notes": "Keep upper arms still; spread rope ends apart at bottom extension.",
+            "image": "https://images.pexels.com/photos/3837781/pexels-photo-3837781.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ],
     "Core": [
         {
-            "name": "Hanging Leg Raise",
+            "name": "Plank Hold",
             "sets": "3",
-            "reps": "12-15",
-            "target": "Lower Abs (Rectus Abdominis - Inferior)",
-            "synergists": "Hip Flexors, Obliques",
-            "notes": "Curl pelvis upward toward chest rather than just swinging legs."
-        },
-        {
-            "name": "Cable Woodchoppers",
-            "sets": "3",
-            "reps": "12-15",
-            "target": "Side Abs (Internal & External Obliques)",
-            "synergists": "Transverse Abdominis",
-            "notes": "Rotate through torso while keeping arms straight and hip movement stable."
+            "reps": "45-60s hold",
+            "target": "Transverse Abdominis & Rectus Abdominis",
+            "synergists": "Obliques, Lower Back",
+            "notes": "Maintain a flat spine, brace core, and avoid letting hips sag.",
+            "image": "https://images.pexels.com/photos/3775566/pexels-photo-3775566.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
     ]
 }
@@ -208,3 +151,9 @@ for ex in selected_list:
         st.markdown(f"🎯 **Primary Target:** `{ex['target']}`")
         st.markdown(f"🦾 **Assisting Muscles:** {ex['synergists']}")
         st.markdown(f"💡 **Execution & Form:** {ex['notes']}")
+        
+        # Display image visually
+        try:
+            st.image(ex["image"], caption=f"Form Guide: {ex['name']}", use_container_width=True)
+        except Exception:
+            st.info(f"🏋️ Form Guide: Keep control and maintain solid posture during {ex['name']}.")
